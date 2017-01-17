@@ -45,9 +45,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [WIN] = KEYMAP(
         KC_ESC,   KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,     KC_9,    KC_0,  KC_LBRC,  KC_RBRC, KC_BSPC,  KC_DEL,   \
-        KC_TAB,   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,     KC_O,    KC_P,  KC_QUOT,   KC_EQL, TD(CTL_BSLS),       \
-        CTL_T(KC_BSLS),  KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,     KC_K,    KC_L,  KC_SCLN,  KC_MINS,  KC_ENT,            \
-        KC_LSPO,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,  TD(COMM_LBRC),  TD(DOT_RBRC),  TD(SLSH_BSPC), LT(NAV, LSFT(KC_0)), MO(MOU),\
+        KC_TAB,   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,     KC_O,    KC_P,  KC_QUOT,   KC_EQL, KC_BSLS,       \
+          M(1),  KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,     KC_K,    KC_L,  KC_SCLN,  KC_MINS,  KC_ENT,            \
+        KC_LSPO,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,  TD(COMM_LBRC),  TD(DOT_RBRC),  TD(SLSH_BSPC), M(0), OSL(MOU),\
                         KC_LGUI, KC_LALT,            LT(SPA, KC_SPC),          KC_LALT, KC_RGUI
     ),
 
@@ -66,9 +66,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [MAC] = KEYMAP(
         KC_ESC,   KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,    KC_9,    KC_0,  KC_LBRC,  KC_RBRC,  KC_BSLS,  KC_DEL, \
-        KC_TAB,   KC_Q,  KC_W,  KC_F,  KC_P,  KC_G,  KC_J,  KC_L,  KC_U,    KC_Y, KC_SCLN,  KC_QUOT,   KC_EQL, TD(CTL_BSPC),          \
-        GUI_T(KC_BSPC),  KC_A,  KC_R,  KC_S,  KC_T,  KC_D,  KC_H,  KC_N,    KC_E,    KC_I,     KC_O,  KC_MINS,   KC_ENT,                      \
-        KC_LSPO,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_K,  KC_M,  TD(COMM_LBRC), TD(DOT_RBRC), TD(SLSH_BSPC),   LT(NAV,  KC_RPRN),  MO(MOU),                    \
+        KC_TAB,   KC_Q,  KC_W,  KC_F,  KC_P,  KC_G,  KC_J,  KC_L,  KC_U,    KC_Y, KC_SCLN,  KC_QUOT,   KC_EQL, KC_BSPC,          \
+          M(2),  KC_A,  KC_R,  KC_S,  KC_T,  KC_D,  KC_H,  KC_N,    KC_E,    KC_I,     KC_O,  KC_MINS,  KC_ENT,                      \
+        KC_LSPO,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_K,  KC_M,  TD(COMM_LBRC), TD(DOT_RBRC), TD(SLSH_BSPC),    M(0),  OSL(MOU),                    \
                         KC_LCTL, KC_LGUI,            LT(SPA, KC_SPC),            KC_RALT,  KC_RCTL
     ),
 
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TRNS,    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,   KC_INS,  KC_TRNS,\
         KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_PGUP,  KC_HOME,    KC_UP,   KC_END,  KC_TRNS,  KC_TRNS,          \
         KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_TRNS,                    \
-        KC_RSPC,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_TRNS,  KC_TRNS,                    \
+        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_TRNS,  KC_TRNS,                    \
                        KC_TRNS,  KC_TRNS,                      KC_TRNS,                      KC_TRNS,  KC_TRNS
     ),
 
@@ -161,17 +161,44 @@ const uint16_t PROGMEM fn_actions[] = {
 
 };
 
+static uint16_t key_timer;
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
   // MACRODOWN only works in this function
       switch(id) {
         case 0:
           if (record->event.pressed) {
-            register_code(KC_RSFT);
+            key_timer = timer_read();
+            layer_on(NAV);
           } else {
-            unregister_code(KC_RSFT);
+            layer_off(NAV);
+            if (timer_elapsed(key_timer) < 150) {
+              return MACRO(D(LSFT), T(0), U(LSFT), END);
+            }
           }
-        break;
+          break;
+        case 1:
+          if (record->event.pressed) {
+            key_timer = timer_read();
+            register_code(KC_LCTL);
+          } else {
+            unregister_code(KC_LCTL);
+            if (timer_elapsed(key_timer) < 150) {
+              return MACRO(D(LCTL), T(BSLS), U(LCTL), END);
+            } 
+          }
+          break;
+        case 2:
+          if (record->event.pressed) {
+            key_timer = timer_read();
+            register_code(KC_LGUI);
+          } else {
+            unregister_code(KC_LGUI);
+            if (timer_elapsed(key_timer) < 150) {
+              return MACRO(D(LCTL), T(BSPC), U(LCTL), END);
+            }
+          }
+          break;
       }
     return MACRO_NONE;
 };
