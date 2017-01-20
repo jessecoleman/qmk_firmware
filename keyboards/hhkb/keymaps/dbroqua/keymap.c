@@ -13,12 +13,8 @@
 enum {
   CTL_BSPC = 0,
   CTL_BSLS = 1,
-  COMM_LBRC = 2, 
-  DOT_RBRC = 3,
-  SLSH_BSPC = 4,
-  SLSH_BSLS = 5, 
-  ALT_M = 6,
-  SPC_B = 7
+  ALT_M = 2,
+  SPC_B = 3
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -62,7 +58,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,   KC_Q,  KC_W,  KC_F,  KC_P,  KC_G,  KC_J,  KC_L,  KC_U,    KC_Y, KC_SCLN,  KC_QUOT,   KC_EQL, KC_BSPC,          \
           M(2),   KC_A,  KC_R,  KC_S,  KC_T,  KC_D,  KC_H,  KC_N,  KC_E,    KC_I,     KC_O,  KC_MINS, KC_ENT,                      \
         SFT_T(KC_LBRC),  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_K,  KC_M,  KC_COMM, KC_DOT, KC_SLSH,    M(0),  OSL(MOU),                    \
-                         KC_LCTL,  OSL(MOU),            LT(SPA, KC_SPC),            KC_RALT,  KC_RCTL
+                         KC_LCTL,  KC_LGUI,            LT(SPA, KC_SPC),            KC_RALT,  KC_RCTL
     ),
 
     /* NIX Layer
@@ -178,6 +174,14 @@ void _td_alm_finished (qk_tap_dance_state_t *state, void *user_data) {
 void _td_alm_reset (qk_tap_dance_state_t *state, void *user_data) {
   td_alm_state_t *s = (td_alm_state_t *)user_data;
 
+  if(state->count == 1) {
+    layer_on(MOU);
+    set_oneshot_layer(MOU, ONESHOT_START);
+    clear_oneshot_layer_state(ONESHOT_PRESSED);
+  } else if(state->count == 2) {
+    layer_on(MOU);
+  }
+
   if (s->alt) {
     unregister_code(KC_LALT);
   }
@@ -199,10 +203,6 @@ void _td_space_click (qk_tap_dance_state_t *state, void *user_data) {
 qk_tap_dance_action_t tap_dance_actions[] = {
   [CTL_BSPC] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS, LCTL(KC_BSPC)),
   [CTL_BSLS] = ACTION_TAP_DANCE_DOUBLE(KC_BSLS, LCTL(KC_BSLS)),
-  [COMM_LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_COMM, KC_LBRC),
-  [DOT_RBRC] = ACTION_TAP_DANCE_DOUBLE(KC_DOT, KC_RBRC),
-  [SLSH_BSPC] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_BSPC),
-  [SLSH_BSLS] = ACTION_TAP_DANCE_DOUBLE(KC_SLSH, KC_BSLS),
   [ALT_M] = {
     .fn = { NULL, _td_alm_finished, _td_alm_reset },
     .user_data = (void *)&((td_alm_state_t) { false, false })
@@ -247,43 +247,7 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             if (timer_elapsed(key_timer) < 150) {
               return MACRO(D(LALT), T(BSPC), U(LALT), END);
             }
-          }
-          break;
-          /*
-        case 3:
-          if(record->event.pressed) {
-            key_timer = timer_read();
-            if(alt_pressed == 0) {
-              register_code(KC_LALT);
-              alt_pressed = 1;
-            }
-            register_code(KC_TAB);            
-          } else {
-            unregister_code(KC_TAB);
-          }
-          break;
-          
-        case 4:
-          if(record->event.pressed) {
-            key_timer = timer_read();
-            layer_on(MOU);
-          } else {
-            unregister_code(KC_LALT);
-              alt_pressed = 0;
-            if(timer_elapsed(key_timer) > 150) {
-              layer_off(MOU);
-            }
-
-            //if(alt_pressed == 1) {
-            //}
-          }
-          */ 
-          break;
-        case 5:
-          if(record->event.pressed) {
-            register_code(KC_SPC);
-            layer_off(MOU);
-          }
+          }          
           break;
       }
     return MACRO_NONE;
