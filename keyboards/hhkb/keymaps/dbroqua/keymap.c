@@ -6,7 +6,7 @@
 #define WIN 0
 #define MAC 1
 #define NIX 2
-#define NAV 3
+#define ALT 3
 #define MOU 4
 #define SPA 5
 
@@ -33,11 +33,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *         `----------------------------------------------------------------´
      */
     [WIN] = KEYMAP(
-        KC_ESC,   KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,     KC_9,    KC_0,  KC_LBRC,  KC_RBRC, KC_BSPC,  KC_DEL,   \
-        KC_TAB,   KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,     KC_O,    KC_P,  KC_QUOT,   KC_EQL, KC_BSLS,       \
-          M(1),  KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,     KC_K,    KC_L,  KC_SCLN,  KC_MINS,  KC_ENT,            \
-        SFT_T(KC_LBRC),  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,   KC_COMM,  KC_DOT,  KC_SLSH, LT(NAV, KC_RBRC), OSL(MOU),\
-                      KC_LGUI,  TD(ALT_M),            LT(SPA, KC_SPC),          KC_LALT, KC_RGUI
+        KC_ESC,  KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,   KC_9,    KC_0,  KC_MINS,  KC_EQL, KC_BSPC,  KC_DEL,   \
+        KC_TAB,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,   KC_O,    KC_P,  KC_LBRC,   KC_RBRC, KC_BSLS,       \
+          M(1),  KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,   KC_L,  KC_SCLN,  KC_QUOT,  CTL_T(KC_ENT),            \
+          KC_LSFT,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,   KC_COMM,  KC_DOT,  KC_SLSH, SFT_T(KC_BSPC), M(8),\
+                      KC_LGUI,ALT_T(KC_MINS),            LT(SPA, KC_SPC),          ALT_T(KC_EQL), KC_RGUI
     ),
 
     /* MAC Layer (DEFAULT)
@@ -55,10 +55,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [MAC] = KEYMAP(
         KC_ESC,   KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,    KC_9,    KC_0,  KC_LBRC,  KC_RBRC,  KC_BSLS,  KC_DEL, \
-        KC_TAB,   KC_Q,  KC_W,  KC_F,  KC_P,  KC_G,  KC_J,  KC_L,  KC_U,    KC_Y, KC_SCLN,  KC_QUOT,   KC_EQL, KC_BSPC,          \
-          M(2),   KC_A,  KC_R,  KC_S,  KC_T,  KC_D,  KC_H,  KC_N,  KC_E,    KC_I,     KC_O,  KC_MINS, KC_ENT,                      \
-        SFT_T(KC_LBRC),  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_K,  KC_M,  KC_COMM, KC_DOT, KC_SLSH,    M(0),  OSL(MOU),                    \
-                         KC_LCTL,  KC_LGUI,            LT(SPA, KC_SPC),            KC_RALT,  KC_RCTL
+        KC_TAB,   KC_Q,  KC_W,  KC_F,  KC_P,  KC_G,  KC_J,  KC_L,  KC_U,    KC_Y, KC_SCLN,  KC_MINS,   KC_EQL, KC_BSPC,          \
+          M(2),   KC_A,  KC_R,  KC_S,  KC_T,  KC_D,  KC_H,  KC_N,  KC_E,    KC_I,     KC_O,  KC_QUOT, GUI_T(KC_ENT),                      \
+        KC_TRNS,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_K,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, SFT_T(KC_BSLS),  M(8),                    \
+                         KC_LCTL,  GUI_T(KC_LBRC),            LT(SPA, KC_SPC),            ALT_T(KC_RBRC),  KC_RCTL
     ),
 
     /* NIX Layer
@@ -79,7 +79,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           \
         CTL_T(KC_ESC)  , KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           \
         KC_TRNS        , KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,           \
-                         KC_LGUI, TD(ALT_M),            LT(SPA, KC_SPC),          KC_LALT, KC_RGUI
+                         KC_LGUI,  ALT_T(KC_LBRC),            LT(SPA, KC_SPC),          ALT_T(KC_RBRC), KC_RGUI
     ),
 
     /* NAV Layer
@@ -95,11 +95,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *         |     |        |                                   |       |     |
      *         `----------------------------------------------------------------´
      */
-    [NAV] = KEYMAP(
-        KC_TRNS,    KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,   KC_F10,   KC_F11,   KC_F12,   KC_INS,  KC_TRNS,\
-        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_PGUP,  KC_HOME,    KC_UP,   KC_END,  KC_TRNS,  KC_TRNS,          \
-        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_PGDN,  KC_LEFT,  KC_DOWN,  KC_RGHT,  KC_TRNS,                    \
-        LSFT(KC_LBRC),  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MUTE,  KC_VOLD,  KC_VOLU,  KC_TRNS,  KC_TRNS,                    \
+    [ALT] = KEYMAP(
+        LSFT(KC_TAB),  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_F4,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_INS,  KC_TRNS,\
+        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_DEL,          \
+        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                    \
+        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  M(4),  M(5),  M(3), KC_TRNS,  KC_TRNS,                    \
                        KC_TRNS,  KC_TRNS,                      KC_TRNS,                      KC_TRNS,  KC_TRNS
     ),
 
@@ -117,11 +117,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *         `----------------------------------------------------------------´
      */
     [MOU] = KEYMAP(
-        TG(MOU),  KC_ACL0,  KC_ACL1,  KC_ACL2,  LALT(KC_F4),  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_PSLS,  KC_PAST,   KC_PMNS, \
-         KC_TAB,  KC_BTN3,  KC_MS_U,  KC_BTN2,  KC_WH_U,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_7,     KC_8,     KC_9,  KC_PPLS,          \
-        KC_TRNS,  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_WH_D,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_4,     KC_5,     KC_6,  KC_PENT,                    \
-        KC_TRNS,  KC_BTN4,  KC_BTN5,  KC_WH_L,  KC_WH_R,  KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_1,     KC_2,     KC_3,   KC_ESC,  KC_TRNS,                    \
-                            KC_TRNS,  TG(MOU),                         TD(SPC_B),                         KC_0,   KC_DOT
+        TG(MOU),  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_PSLS,  KC_PAST,   KC_PMNS, \
+           M(5),  KC_BTN3,  KC_MS_U,  KC_BTN2,  KC_WH_U,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_7,     KC_8,     KC_9,  KC_PPLS,          \
+           M(4),  KC_MS_L,  KC_MS_D,  KC_MS_R,  KC_WH_D,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_4,     KC_5,     KC_6,  KC_PENT,                    \
+           M(3),  KC_BTN4,  KC_BTN5,  KC_WH_L,  KC_WH_R,  KC_TRNS,  KC_TRNS,  KC_TRNS,     KC_1,     KC_2,     KC_3,   KC_ESC,  KC_TRNS,                    \
+                            KC_TRNS,  TG(MOU),                         KC_BTN1,                         KC_0,   KC_DOT
     ),
 
     /* SPACE Layer
@@ -129,7 +129,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      * |     |      |     |     |     |     |     |     |     |     |     |     |     |     |    |
      * |-----------------------------------------------------------------------------------------+
      * |        |     | MUp |     |     |     |     |     |     |     | Btn1|  Up | Btn2|        |
-     * |----------------------------------------------------------------------------------------+
+     * |-----------------------------------------------------------------------------------------+
      * |         | MLt | MDn | MRt |     |     |     |     |     |     | Left |Right|            |
      * |-----------------------------------------------------------------------------------------+
      * |           |     |     |     |     |     |     |     |     | Btn3| Down|           |     |
@@ -138,11 +138,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *         `----------------------------------------------------------------´
      */
     [SPA] = KEYMAP(
-        TG(MAC),  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  TG(NIX),\
-        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,          \
-        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_HOME,  KC_LEFT,  KC_DOWN,    KC_UP,  KC_RGHT,   KC_END,  KC_TRNS,                    \
-        KC_LPRN,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,LCTL(KC_0),LCTL(KC_MINS),LCTL(KC_EQL),KC_RPRN,  KC_TRNS,              \
-                            KC_TRNS,  KC_TRNS,                      KC_TRNS,            KC_TRNS, KC_TRNS
+        TG(NIX),  KC_F1, KC_F2, KC_F3,   KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,    KC_F9,  KC_F10,   KC_F11,   KC_F12,    M(6),  M(7), \
+        KC_TRNS,  KC_1,  KC_2,  KC_3,LSFT(KC_9),  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,        \
+        KC_TRNS,  KC_4,  KC_5,  KC_6,LSFT(KC_0),  KC_BTN1,  KC_HOME,  KC_LEFT,  KC_DOWN,    KC_UP, KC_RGHT,   KC_END,  KC_TRNS,                 \
+        KC_TRNS,  KC_7,  KC_8,  KC_9,     KC_0,  KC_TRNS,  KC_TRNS,  KC_TRNS,LCTL(KC_0),LCTL(KC_MINS),LCTL(KC_EQL),KC_TRNS,  KC_TRNS,          \
+                  KC_TRNS,  KC_TRNS,                      KC_TRNS,            KC_TRNS,KC_TRNS
     )
 };
 
@@ -167,12 +167,19 @@ void _td_alm_finished (qk_tap_dance_state_t *state, void *user_data) {
     register_code(KC_LALT);
   } else {
     s->alt = false;
+    unregister_code(KC_LALT);
     layer_on(MOU);
   }
 }
 
 void _td_alm_reset (qk_tap_dance_state_t *state, void *user_data) {
   td_alm_state_t *s = (td_alm_state_t *)user_data;
+
+  if (s->alt) {
+    unregister_code(KC_LALT);
+  }
+
+  s->finished_once = false;
 
   if(state->count == 1) {
     layer_on(MOU);
@@ -181,13 +188,7 @@ void _td_alm_reset (qk_tap_dance_state_t *state, void *user_data) {
   } else if(state->count == 2) {
     layer_on(MOU);
   }
-
-  if (s->alt) {
-    unregister_code(KC_LALT);
-  }
-
-  s->finished_once = false;
-}
+} 
 
 void _td_space_click (qk_tap_dance_state_t *state, void *user_data) {
   if (state->count == 1) {
@@ -212,18 +213,22 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 
 static uint16_t key_timer;
+static uint16_t mouse_speed;
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
   // MACRODOWN only works in this function
       switch(id) {
         case 0:
-          if (record->event.pressed) {
+          if(record->event.pressed) {
             key_timer = timer_read();
-            layer_on(NAV);
+            layer_on(ALT);
+            register_code(KC_LALT);
           } else {
-            layer_off(NAV);
+            unregister_code(KC_LALT);
+            layer_off(ALT);
             if (timer_elapsed(key_timer) < 150) {
-              return MACRO(D(LSFT), T(0), U(LSFT), END);
+              register_code(KC_LBRC);
+              unregister_code(KC_LBRC);
             }
           }
           break;
@@ -232,10 +237,12 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             key_timer = timer_read();
             register_code(KC_LCTL);
           } else {
-            unregister_code(KC_LCTL);
             if (timer_elapsed(key_timer) < 150) {
-              return MACRO(D(LCTL), T(BSLS), U(LCTL), END);
-            } 
+              register_code(KC_BSLS);
+              unregister_code(KC_BSLS);
+            }
+            unregister_code(KC_LCTL);
+             
           }
           break;
         case 2:
@@ -249,6 +256,60 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             }
           }          
           break;
+        case 3:
+          if (record->event.pressed) {
+            if(mouse_speed != 1) {
+              mouse_speed = 1;
+              register_code(KC_ACL0);
+            } else {
+              unregister_code(KC_ACL0);
+              mouse_speed = 0;
+            }
+          }
+        case 4:
+          if(record->event.pressed) {
+            if(mouse_speed != 2) {
+              mouse_speed = 2;
+              unregister_code(KC_ACL0);
+              register_code(KC_ACL1);
+            } else {
+              unregister_code(KC_ACL1);
+              mouse_speed = 0;
+            }
+          }
+          break;
+        case 5:
+          if(record->event.pressed) {
+            if(mouse_speed != 3) {
+              mouse_speed = 3;
+              unregister_code(KC_ACL0);
+              unregister_code(KC_ACL1);
+              register_code(KC_ACL2);
+            } else {
+              unregister_code(KC_ACL2);
+              mouse_speed = 0;
+            }
+          }
+          break;
+        case 6:
+          if(record->event.pressed) {
+            layer_off(MAC);
+          }
+          break;
+        case 7:
+          if(record->event.pressed) {
+            layer_on(MAC);
+          }
+          break;
+        case 8:
+          if(record->event.pressed) {
+            key_timer = timer_read();
+            layer_on(MOU);
+          } else {
+            if(key_timer > 150) {
+              layer_off(MOU);
+            }
+          }
       }
     return MACRO_NONE;
 };
