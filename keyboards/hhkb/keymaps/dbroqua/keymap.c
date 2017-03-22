@@ -34,11 +34,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *         `----------------------------------------------------------------´
      */
     [WIN] = KEYMAP(
-        KC_ESC,  KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,   KC_9,    KC_0,  KC_MINS,  KC_EQL, KC_BSPC,  KC_DEL,   \
-        KC_TAB,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,   KC_O,    KC_P,  KC_LBRC,   KC_RBRC, KC_BSLS,       \
-          M(1),  KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,   KC_L,  KC_SCLN,  KC_QUOT,  CTL_T(KC_ENT),            \
-          KC_LSFT,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M,   KC_COMM,  KC_DOT,  KC_SLSH, SFT_T(KC_BSPC), M(8),\
-                      KC_LGUI,ALT_T(KC_MINS),            LT(SPA, KC_SPC),          ALT_T(KC_EQL), KC_RGUI
+        KC_ESC,  KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,   KC_9,   KC_0,   KC_MINS,  KC_EQL, KC_BSPC,  KC_DEL,\
+        KC_TAB,  KC_Q,  KC_W,  KC_E,  KC_R,  KC_T,  KC_Y,  KC_U,  KC_I,   KC_O,   KC_P,   KC_LBRC,  KC_RBRC, KC_BSLS,        \
+        M(1),    KC_A,  KC_S,  KC_D,  KC_F,  KC_G,  KC_H,  KC_J,  KC_K,   KC_L,   KC_SCLN, KC_QUOT,  CTL_T(KC_ENT),          \
+        KC_LSFT, KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_N,  KC_M, KC_COMM, KC_DOT, KC_SLSH, M(8), M(0),                       \
+                 KC_LGUI,      ALT_T(KC_MINS),      LT(SPA, KC_SPC),      ALT_T(KC_EQL),   KC_RGUI
     ),
 
     /* MAC Layer (DEFAULT)
@@ -55,10 +55,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *         `----------------------------------------------------------------´
      */
     [MAC] = KEYMAP(
-        KC_ESC,   KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,    KC_9,    KC_0,  KC_LBRC,  KC_RBRC,  KC_BSLS,  KC_DEL, \
-        KC_TAB,   KC_Q,  KC_W,  KC_F,  KC_P,  KC_G,  KC_J,  KC_L,  KC_U,    KC_Y, KC_SCLN,  KC_MINS,   KC_EQL, KC_BSPC,          \
+        KC_ESC,   KC_1,  KC_2,  KC_3,  KC_4,  KC_5,  KC_6,  KC_7,  KC_8,    KC_9,    KC_0,  KC_MINS,  KC_EQL,  KC_BSLS,  KC_DEL, \
+        KC_TAB,   KC_Q,  KC_W,  KC_F,  KC_P,  KC_G,  KC_J,  KC_L,  KC_U,    KC_Y, KC_SCLN,  KC_LBRC,  KC_RBRC, KC_BSPC,          \
           M(2),   KC_A,  KC_R,  KC_S,  KC_T,  KC_D,  KC_H,  KC_N,  KC_E,    KC_I,     KC_O,  KC_QUOT, CTL_T(KC_ENT),                      \
-        KC_TRNS,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_K,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, SFT_T(KC_BSLS),  M(8),                    \
+        KC_TRNS,  KC_Z,  KC_X,  KC_C,  KC_V,  KC_B,  KC_K,  KC_M,  KC_COMM, KC_DOT, KC_SLSH, M(9),  M(0),                    \
                          KC_LCTL,  ALT_T(KC_LBRC),            LT(SPA, KC_SPC),            ALT_T(KC_RBRC),  KC_RCTL
     ),
 
@@ -97,11 +97,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      *         `----------------------------------------------------------------´
      */
     [ALT] = KEYMAP(
-        LSFT(KC_TAB),  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_F4,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_INS,  KC_TRNS,\
-        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_DEL,          \
-        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                    \
-        KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  M(4),  M(5),  M(3), KC_TRNS,  KC_TRNS,                    \
-                       KC_TRNS,  KC_TRNS,                      KC_TRNS,                      KC_TRNS,  KC_TRNS
+        KC_GRV,   KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_INS,  KC_TRNS,\
+        KC_TRNS,  KC_9,     KC_0,     KC_MINS, KC_EQL,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,          \
+        KC_TRNS,  KC_5,     KC_6,     KC_7,    KC_8,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                    \
+        KC_TRNS,  KC_1,     KC_2,     KC_3,    KC_4,    KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,                    \
+                  KC_TRNS,  KC_TRNS,                    KC_SPC,                                KC_TRNS,  KC_TRNS
     ),
 
     /* MOUSE Layer
@@ -140,9 +140,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      */
     [SPA] = KEYMAP(
         TG(NIX),  KC_F1,    KC_F2,   KC_F3,    KC_F4,    KC_F5,    KC_F6,    KC_F7,    KC_F8,   KC_F9,   KC_F10,  KC_F11,   KC_F12,  M(6),  M(7), \
-        KC_TRNS,  KC_AMPR,  KC_ASTR, KC_LPRN,  KC_RPRN,  KC_TRNS,  KC_TRNS,  KC_PGUP,  KC_UP,   KC_PGDN, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,        \
-        KC_TRNS,  KC_DLR,   KC_PERC, KC_CIRC,  KC_TRNS,  KC_TRNS,  KC_HOME,  KC_LEFT,  KC_DOWN, KC_RGHT, KC_END,  KC_TRNS,  KC_TRNS,                 \
-        KC_TRNS,  KC_EXLM,  KC_AT,   KC_HASH,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MUTE, KC_VOLD, KC_VOLU, KC_TRNS,  RESET,          \
+        KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_PGUP,  KC_UP,   KC_PGDN, KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS,        \
+        KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_HOME,  KC_LEFT,  KC_DOWN, KC_RGHT, KC_END,  KC_TRNS,  KC_TRNS,                 \
+        KC_TRNS,  KC_TRNS,  KC_TRNS, KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_TRNS,  KC_MUTE, KC_VOLD, KC_VOLU, KC_RSFT,  RESET,          \
                   KC_TRNS,  KC_TRNS,                     KC_TRNS,            KC_TRNS,  KC_TRNS
     )
 };
@@ -197,63 +197,63 @@ const uint16_t PROGMEM fn_actions[] = {
 
 };
 
-typedef struct {
-  bool alt;
-  bool finished_once;
-} td_alm_state_t;
+// typedef struct {
+//   bool alt;
+//   bool finished_once;
+// } td_alm_state_t;
 
-void _td_alm_finished (qk_tap_dance_state_t *state, void *user_data) {
-  td_alm_state_t *s = (td_alm_state_t *)user_data;
+// void _td_alm_finished (qk_tap_dance_state_t *state, void *user_data) {
+//   td_alm_state_t *s = (td_alm_state_t *)user_data;
 
-  if (s->finished_once)
-    return;
+//   if (s->finished_once)
+//     return;
 
-  s->finished_once = true;
-  if (state->pressed) {
-    s->alt = true;
-    register_code(KC_LALT);
-  } else {
-    s->alt = false;
-    unregister_code(KC_LALT);
-    layer_on(MOU);
-  }
-}
+//   s->finished_once = true;
+//   if (state->pressed) {
+//     s->alt = true;
+//     register_code(KC_LALT);
+//   } else {
+//     s->alt = false;
+//     unregister_code(KC_LALT);
+//     layer_on(MOU);
+//   }
+// }
 
-void _td_alm_reset (qk_tap_dance_state_t *state, void *user_data) {
-  td_alm_state_t *s = (td_alm_state_t *)user_data;
+// void _td_alm_reset (qk_tap_dance_state_t *state, void *user_data) {
+//   td_alm_state_t *s = (td_alm_state_t *)user_data;
 
-  if (s->alt) {
-    unregister_code(KC_LALT);
-  }
+//   if (s->alt) {
+//     unregister_code(KC_LALT);
+//   }
 
-  s->finished_once = false;
+//   s->finished_once = false;
 
-  if(state->count == 1) {
-    layer_on(MOU);
-    set_oneshot_layer(MOU, ONESHOT_START);
-    clear_oneshot_layer_state(ONESHOT_PRESSED);
-  } else if(state->count == 2) {
-    layer_on(MOU);
-  }
-} 
+//   if(state->count == 1) {
+//     layer_on(MOU);
+//     set_oneshot_layer(MOU, ONESHOT_START);
+//     clear_oneshot_layer_state(ONESHOT_PRESSED);
+//   } else if(state->count == 2) {
+//     layer_on(MOU);
+//   }
+// } 
 
-void _td_space_click (qk_tap_dance_state_t *state, void *user_data) {
-  if (state->count == 1) {
-    register_code(KC_BTN1);
-    unregister_code(KC_BTN1);
-  } else {
-    layer_off(MOU);
-    register_code(KC_SPC);
-    unregister_code(KC_SPC);
-  }
-}
+// void _td_space_click (qk_tap_dance_state_t *state, void *user_data) {
+//   if (state->count == 1) {
+//     register_code(KC_BTN1);
+//     unregister_code(KC_BTN1);
+//   } else {
+//     layer_off(MOU);
+//     register_code(KC_SPC);
+//     unregister_code(KC_SPC);
+//   }
+// }
 
 qk_tap_dance_action_t tap_dance_actions[] = {
-  [ALT_M] = {
-    .fn = { NULL, _td_alm_finished, _td_alm_reset },
-    .user_data = (void *)&((td_alm_state_t) { false, false })
-  },
-  [SPC_B] = ACTION_TAP_DANCE_FN(_td_space_click)
+//   [ALT_M] = {
+//     .fn = { NULL, _td_alm_finished, _td_alm_reset },
+//     .user_data = (void *)&((td_alm_state_t) { false, false })
+//   },
+//   [SPC_B] = ACTION_TAP_DANCE_FN(_td_space_click)
 };
 
 static uint16_t key_timer;
@@ -264,17 +264,14 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case 0:
           if(record->event.pressed) {
             key_timer = timer_read();
-            layer_on(ALT);
-            register_code(KC_LALT);
-          } else {
-            unregister_code(KC_LALT);
-            layer_off(ALT);
-            if (timer_elapsed(key_timer) < 150) {
-              register_code(KC_LBRC);
-              unregister_code(KC_LBRC);
-            }
+            layer_invert(MOU);
+            set_mouse_acc(2);
+          } else if(timer_elapsed(key_timer) > 150) {
+            set_mouse_acc(0);
+            layer_invert(MOU);
           }
           break;
+          
         case 1:
           if (record->event.pressed) {
             key_timer = timer_read();
@@ -327,12 +324,31 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case 8:
           if(record->event.pressed) {
             key_timer = timer_read();
-            layer_on(MOU);
-            set_mouse_acc(2);
-          } else if(timer_elapsed(key_timer) > 150) {
-            set_mouse_acc(0);
-            layer_off(MOU);
+            layer_on(ALT);
+            register_code(KC_RSFT);
+          } else {
+            unregister_code(KC_RSFT);
+            layer_off(ALT);
+            if (timer_elapsed(key_timer) < 150) {
+              register_code(KC_BSPC);
+              unregister_code(KC_BSPC);
+            }
           }
+          break;
+        case 9:
+          if(record->event.pressed) {
+            key_timer = timer_read();
+            layer_on(ALT);
+            register_code(KC_RSFT);
+          } else {
+            unregister_code(KC_RSFT);
+            layer_off(ALT);
+            if (timer_elapsed(key_timer) < 150) {
+              register_code(KC_BSLS);
+              unregister_code(KC_BSLS);
+            }
+          }
+          break;
       }
     return MACRO_NONE;
 };
